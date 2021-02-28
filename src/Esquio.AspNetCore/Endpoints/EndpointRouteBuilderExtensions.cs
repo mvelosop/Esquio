@@ -44,7 +44,27 @@ namespace Microsoft.AspNetCore.Builder
             }
 
             var pipeline = endpoints.CreateApplicationBuilder()
-                .UseMiddleware<EsquioMiddleware>()
+                .UseMiddleware<EsquioClientEndpointMiddleware>()
+                .Build();
+
+            return endpoints.MapGet(pattern, pipeline);
+        }
+
+        /// <summary>
+        /// Map a new endpoint that can be used to get the information about the custom toggles used on this product.
+        /// </summary>
+        /// <param name="endpoints"><see cref="IEndpointRouteBuilder"/></param>
+        /// <param name="pattern">The uri pattern for this endpoint.</param>
+        /// <returns>A <see cref="IEndpointRouteBuilder"/> to continue configuring this new endpoint.</returns>
+        public static IEndpointConventionBuilder MapEsquioDiscoverCustomTogglesDefinitions(this IEndpointRouteBuilder endpoints, string pattern = "esquio-toggles")
+        {
+            if (endpoints == null )
+            {
+                throw new ArgumentNullException(nameof(endpoints));
+            }
+
+            var pipeline = endpoints.CreateApplicationBuilder()
+                .UseMiddleware<EsquioDiscoverCustomTogglesDefinitionMiddleware>()
                 .Build();
 
             return endpoints.MapGet(pattern, pipeline);

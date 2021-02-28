@@ -33,17 +33,21 @@ namespace Esquio.AspNetCore.Diagnostics
         {
             _featureTagHelperClearContent(logger, featureName, null);
         }
-        public static void EsquioMiddlewareThrow(ILogger logger, string featureName, Exception exception)
+        public static void EsquioClientMiddlewareThrow(ILogger logger, string featureName, Exception exception)
         {
-            _esquioMiddlewareThrow(logger, featureName, exception);
+            _esquioClientMiddlewareThrow(logger, featureName, exception);
         }
-        public static void EsquioMiddlewareEvaluatingFeature(ILogger logger, string featureName)
+        public static void EsquioClientMiddlewareEvaluatingFeature(ILogger logger, string featureName)
         {
-            _esquioMiddlewareEvaluateFeature(logger, featureName, null);
+            _esquioClientMiddlewareEvaluateFeature(logger, featureName, null);
         }
-        public static void EsquioMiddlewareSuccess(ILogger logger)
+        public static void EsquioClientMiddlewareSuccess(ILogger logger)
         {
-            _esquioMiddlewareSuccess(logger, null);
+            _esquioClientMiddlewareSuccess(logger, null);
+        }
+        public static void EsquioDiscoverCustomTogglesMiddlewareSuccess(ILogger logger)
+        {
+            _esquioDiscoverCustomToggleMiddlewareSuccess(logger, null);
         }
 
         private static readonly Action<ILogger, string, Exception> _featureMatcherPolicyEndpointCanBeApplied = LoggerMessage.Define<string>(
@@ -74,18 +78,22 @@ namespace Esquio.AspNetCore.Diagnostics
             LogLevel.Debug,
             EventIds.FeatureTagHelperClearContent,
             "FeatureTagHelper is clearing inner content because {featureName} is not enabled.");
-        private static readonly Action<ILogger, string, Exception> _esquioMiddlewareThrow = LoggerMessage.Define<string>(
+        private static readonly Action<ILogger, string, Exception> _esquioClientMiddlewareThrow = LoggerMessage.Define<string>(
             LogLevel.Error,
-            EventIds.EsquioMiddlewareThrow,
-            "Esquio middleware throw exception when evaluating {featureName}.");
-        private static readonly Action<ILogger, string, Exception> _esquioMiddlewareEvaluateFeature = LoggerMessage.Define<string>(
+            EventIds.EsquioClientMiddlewareThrow,
+            "Esquio Client middleware throw exception when evaluating {featureName}.");
+        private static readonly Action<ILogger, string, Exception> _esquioClientMiddlewareEvaluateFeature = LoggerMessage.Define<string>(
             LogLevel.Debug,
-            EventIds.EsquioMiddlewareEvaluateFeature,
-            "Evaluating {featureName} for product on Esquio middleware.");
-        private static readonly Action<ILogger, Exception> _esquioMiddlewareSuccess = LoggerMessage.Define(
+            EventIds.EsquioClientMiddlewareEvaluateFeature,
+            "Evaluating {featureName} for product on Esquio Client middleware.");
+        private static readonly Action<ILogger, Exception> _esquioClientMiddlewareSuccess = LoggerMessage.Define(
             LogLevel.Debug,
-            EventIds.EsquioMiddlewareSuccess,
-            "Esquio middleware perform feature evaluation succesfully.");
+            EventIds.EsquioClientMiddlewareSuccess,
+            "Esquio Client middleware perform feature evaluation succesfully.");
+        private static readonly Action<ILogger, Exception> _esquioDiscoverCustomToggleMiddlewareSuccess = LoggerMessage.Define(
+           LogLevel.Debug,
+           EventIds.EsquioDiscoverCustomTogglesMiddlewareSuccess,
+           "Esquio discover custom toggles middleware success.");
 
 
     }

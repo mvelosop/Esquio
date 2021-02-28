@@ -43,6 +43,9 @@ namespace GettingStarted.AspNetCore.Intro
 
                 //enable client endpoint!! request to /esquio?featureName=HiddenGem to get feature status
                 endpoints.MapEsquio();
+
+                //enable discover custom toggle endpoint
+                endpoints.MapEsquioDiscoverCustomTogglesDefinitions();
             });
         }
     }

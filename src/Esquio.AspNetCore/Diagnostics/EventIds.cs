@@ -12,8 +12,9 @@ namespace Esquio.AspNetCore.Diagnostics
         public static readonly EventId FeatureTagHelperBeginProcess = new EventId(205, nameof(FeatureTagHelperBeginProcess));
         public static readonly EventId FeatureTagHelperClearContent = new EventId(206, nameof(FeatureTagHelperClearContent));
 
-        public static readonly EventId EsquioMiddlewareThrow = new EventId(220, nameof(EsquioMiddlewareThrow));
-        public static readonly EventId EsquioMiddlewareEvaluateFeature = new EventId(221, nameof(EsquioMiddlewareEvaluateFeature));
-        public static readonly EventId EsquioMiddlewareSuccess = new EventId(222, nameof(EsquioMiddlewareSuccess));
+        public static readonly EventId EsquioClientMiddlewareThrow = new EventId(220, nameof(EsquioClientMiddlewareThrow));
+        public static readonly EventId EsquioClientMiddlewareEvaluateFeature = new EventId(221, nameof(EsquioClientMiddlewareEvaluateFeature));
+        public static readonly EventId EsquioClientMiddlewareSuccess = new EventId(222, nameof(EsquioClientMiddlewareSuccess));
+        public static readonly EventId EsquioDiscoverCustomTogglesMiddlewareSuccess = new EventId(223, nameof(EsquioDiscoverCustomTogglesMiddlewareSuccess));
     }
 }

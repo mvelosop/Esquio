@@ -8,7 +8,6 @@ namespace Esquio.AspNetCore.Diagnostics
     {
         private readonly ILogger _logger;
 
-
         public EsquioAspNetCoreDiagnostics(ILoggerFactory loggerFactory)
         {
             _ = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
@@ -49,19 +48,24 @@ namespace Esquio.AspNetCore.Diagnostics
             Log.FeatureTagHelperClearContent(_logger, featureName);
         }
 
-        public void EsquioMiddlewareThrow(string featureName, Exception exception)
+        public void EsquioClientMiddlewareThrow(string featureName, Exception exception)
         {
-            Log.EsquioMiddlewareThrow(_logger, featureName, exception);
+            Log.EsquioClientMiddlewareThrow(_logger, featureName, exception);
         }
 
-        public void EsquioMiddlewareEvaluatingFeature(string featureName)
+        public void EsquioClientMiddlewareEvaluatingFeature(string featureName)
         {
-            Log.EsquioMiddlewareEvaluatingFeature(_logger, featureName);
+            Log.EsquioClientMiddlewareEvaluatingFeature(_logger, featureName);
         }
 
-        public void EsquioMiddlewareSuccess()
+        public void EsquioClientMiddlewareSuccess()
         {
-            Log.EsquioMiddlewareSuccess(_logger);
+            Log.EsquioClientMiddlewareSuccess(_logger);
+        }
+
+        public void EsquioDiscoverCustomToggleSucess()
+        {
+            Log.EsquioDiscoverCustomTogglesMiddlewareSuccess(_logger);
         }
     }
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member

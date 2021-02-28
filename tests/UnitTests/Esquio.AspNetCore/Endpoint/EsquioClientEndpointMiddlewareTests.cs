@@ -10,10 +10,10 @@ using Xunit;
 namespace UnitTests.Esquio.AspNetCore.Endpoint
 {
     [Collection(nameof(AspNetCoreServer))]
-    public class esquio_middleware_should
+    public class esquio_client_endpoint_middleware_should
     {
         private readonly ServerFixture _fixture;
-        public esquio_middleware_should(ServerFixture fixture)
+        public esquio_client_endpoint_middleware_should(ServerFixture fixture)
         {
             _fixture = fixture ?? throw new ArgumentNullException(nameof(fixture));
         }

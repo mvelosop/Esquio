@@ -2,7 +2,6 @@
 using Esquio.AspNetCore.Diagnostics;
 using Esquio.DependencyInjection;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Net.Mime;
@@ -12,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Esquio.AspNetCore.Endpoints
 {
-    internal class EsquioMiddleware
+    internal class EsquioClientEndpointMiddleware
     {
         private static readonly JsonSerializerOptions _serializerOptions = new JsonSerializerOptions()
         {
@@ -26,7 +25,7 @@ namespace Esquio.AspNetCore.Endpoints
 
         private readonly RequestDelegate _next;
 
-        public EsquioMiddleware(RequestDelegate next)
+        public EsquioClientEndpointMiddleware(RequestDelegate next)
         {
             _next = next ?? throw new ArgumentNullException(nameof(next));
         }
@@ -41,7 +40,7 @@ namespace Esquio.AspNetCore.Endpoints
             {
                 try
                 {
-                    diagnostics.EsquioMiddlewareEvaluatingFeature(featureName);
+                    diagnostics.EsquioClientMiddlewareEvaluatingFeature(featureName);
 
                     var isEnabled = await featureService
                         .IsEnabledAsync(featureName, context?.RequestAborted ?? CancellationToken.None);
@@ -54,7 +53,7 @@ namespace Esquio.AspNetCore.Endpoints
                 }
                 catch (Exception exception)
                 {
-                    diagnostics.EsquioMiddlewareThrow(featureName, exception);
+                    diagnostics.EsquioClientMiddlewareThrow(featureName, exception);
 
                     await WriteError(context, featureName);
 
@@ -62,7 +61,7 @@ namespace Esquio.AspNetCore.Endpoints
                 }
             }
 
-            diagnostics.EsquioMiddlewareSuccess();
+            diagnostics.EsquioClientMiddlewareSuccess();
             await WriteResponse(context, evaluationsResponse);
         }
 
