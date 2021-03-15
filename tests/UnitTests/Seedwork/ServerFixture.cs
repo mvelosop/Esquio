@@ -91,6 +91,7 @@ namespace UnitTests.Seedwork
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapEsquio("esquio");
+                endpoints.MapAutoDiscoverEsquioToggles("esquio-autodiscover");
 
                 endpoints.MapControllerRoute(
                     name: "default",

@@ -45,7 +45,7 @@ namespace GettingStarted.AspNetCore.Intro
                 endpoints.MapEsquio();
 
                 //enable discover custom toggle endpoint
-                endpoints.MapEsquioDiscoverCustomTogglesDefinitions();
+                endpoints.MapAutoDiscoverEsquioToggles();
             });
         }
     }

@@ -56,7 +56,7 @@ namespace Microsoft.AspNetCore.Builder
         /// <param name="endpoints"><see cref="IEndpointRouteBuilder"/></param>
         /// <param name="pattern">The uri pattern for this endpoint.</param>
         /// <returns>A <see cref="IEndpointRouteBuilder"/> to continue configuring this new endpoint.</returns>
-        public static IEndpointConventionBuilder MapEsquioDiscoverCustomTogglesDefinitions(this IEndpointRouteBuilder endpoints, string pattern = "esquio-toggles")
+        public static IEndpointConventionBuilder MapAutoDiscoverEsquioToggles(this IEndpointRouteBuilder endpoints, string pattern = "esquio-autodiscover")
         {
             if (endpoints == null )
             {
