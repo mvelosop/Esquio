@@ -28,7 +28,13 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
 - task: DotNetCoreCLI@2
+  displayName: Create package
   inputs:
     command: 'pack'
     packagesToPack: 'src/Esquio.UI.Deployment/Esquio.UI.Deployment.csproj'
@@ -36,7 +42,10 @@ steps:
     includesource: true
     versioningScheme: 'off'
 
-- task: VSTest@2
+- task: DotNetCoreCLI@2
+  displayName: Push package to internal feed
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '74de3695-6cf9-4d30-b0b1-a79859679e56'
