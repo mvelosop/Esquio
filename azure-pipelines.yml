@@ -37,7 +37,7 @@ steps:
   displayName: Create package
   inputs:
     command: 'pack'
-    packagesToPack: 'src/Esquio.UI.Deployment/Esquio.UI.Deployment.csproj'
+    packagesToPack: 'src/Esquio.UI.*/*.csproj; !src/Esquio.UI.Host/*.csproj'
     includesymbols: true
     includesource: true
     versioningScheme: 'off'
