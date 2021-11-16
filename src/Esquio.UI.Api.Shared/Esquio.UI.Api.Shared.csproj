@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>$(NetStandardTargetVersion21)</TargetFramework>
+    <Description>Esquio UI deployment package (API shared)</Description>
+    <PackageTags>Esquio;Features;Flags;Toggles;AB Testing;AspNetCore;Deployment</PackageTags>
+    <Version>$(esquiouiapishared)</Version>
+    <PackageId>Esquio.UI.Api.Shared</PackageId>
+    <PackageVersion>$(esquiouiapishared)</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
