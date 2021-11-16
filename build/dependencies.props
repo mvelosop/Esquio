@@ -21,9 +21,6 @@
     <esquiocli>4.0.0$(VersionSuffix)</esquiocli>
     <esquiohttpstore>4.1.0$(VersionSuffix)</esquiohttpstore>
     <esquioblazorwasm>4.0.0$(VersionSuffix)</esquioblazorwasm>
-    <esquiouideployment>4.0.0$(VersionSuffix)</esquiouideployment>
-    <esquiouiapi>4.0.0$(VersionSuffix)</esquiouiapi>
-    <esquiouiapishared>4.0.0$(VersionSuffix)</esquiouiapishared>
-    <esquiouiclient>4.0.0$(VersionSuffix)</esquiouiclient>
+    <esquioui>4.0.1$(VersionSuffix)</esquioui>
   </PropertyGroup>
 </Project>
