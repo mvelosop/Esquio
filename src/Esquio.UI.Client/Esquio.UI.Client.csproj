@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>$(NetStandardTargetVersion21)</TargetFramework>
+    <Description>Esquio UI deployment package (Client)</Description>
+    <PackageTags>Esquio;Features;Flags;Toggles;AB Testing;AspNetCore;Deployment</PackageTags>
+    <Version>$(esquiouiclient)</Version>
+    <PackageId>Esquio.UI.Client</PackageId>
+    <PackageVersion>$(esquiouiclient)</PackageVersion>
     <RazorLangVersion>$(RazorLangVersion)</RazorLangVersion>
   </PropertyGroup>
 

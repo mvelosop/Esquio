@@ -3,6 +3,11 @@
   <PropertyGroup>
     <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <Description>Esquio UI deployment package (API)</Description>
+    <PackageTags>Esquio;Features;Flags;Toggles;AB Testing;AspNetCore;Deployment</PackageTags>
+    <Version>$(esquiouiapi)</Version>
+    <PackageId>Esquio.UI.Api</PackageId>
+    <PackageVersion>$(esquiouiapi)</PackageVersion>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
