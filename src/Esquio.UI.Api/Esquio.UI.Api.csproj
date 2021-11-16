@@ -5,9 +5,9 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <Description>Esquio UI deployment package (API)</Description>
     <PackageTags>Esquio;Features;Flags;Toggles;AB Testing;AspNetCore;Deployment</PackageTags>
-    <Version>$(esquiouiapi)</Version>
+    <Version>$(esquioui)</Version>
     <PackageId>Esquio.UI.Api</PackageId>
-    <PackageVersion>$(esquiouiapi)</PackageVersion>
+    <PackageVersion>$(esquioui)</PackageVersion>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 

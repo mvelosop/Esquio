@@ -4,9 +4,9 @@
     <TargetFramework>$(NetStandardTargetVersion21)</TargetFramework>
     <Description>Esquio UI deployment package (Client)</Description>
     <PackageTags>Esquio;Features;Flags;Toggles;AB Testing;AspNetCore;Deployment</PackageTags>
-    <Version>$(esquiouiclient)</Version>
+    <Version>$(esquioui)</Version>
     <PackageId>Esquio.UI.Client</PackageId>
-    <PackageVersion>$(esquiouiclient)</PackageVersion>
+    <PackageVersion>$(esquioui)</PackageVersion>
     <RazorLangVersion>$(RazorLangVersion)</RazorLangVersion>
   </PropertyGroup>
 
