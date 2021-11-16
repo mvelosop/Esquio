@@ -4,9 +4,9 @@
     <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
     <Description>Esquio UI deployment package</Description>
     <PackageTags>Esquio;Features;Flags;Toggles;AB Testing;AspNetCore;Deployment</PackageTags>
-    <Version>$(esquioaspnetcore)</Version>
+    <Version>$(esquiodeployment)</Version>
     <PackageId>Esquio.UI.Deployment</PackageId>
-    <PackageVersion>$(esquioaspnetcore)</PackageVersion>
+    <PackageVersion>$(esquiodeployment)</PackageVersion>
     <LangVersion>$(LangVersion)</LangVersion>
   </PropertyGroup>
 

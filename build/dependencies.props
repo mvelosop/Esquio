@@ -8,7 +8,7 @@
     <RazorLangVersion>3.0</RazorLangVersion>
     <LangVersion>preview</LangVersion>
     <GitHubSourceLink>1.0.0</GitHubSourceLink>
-  </PropertyGroup>  
+  </PropertyGroup>
 
   <PropertyGroup Label="Esquio Versions">
     <esquio>4.0.0$(VersionSuffix)</esquio>
@@ -21,5 +21,6 @@
     <esquiocli>4.0.0$(VersionSuffix)</esquiocli>
     <esquiohttpstore>4.1.0$(VersionSuffix)</esquiohttpstore>
     <esquioblazorwasm>4.0.0$(VersionSuffix)</esquioblazorwasm>
+    <esquiodeployment>4.0.0$(VersionSuffix)</esquiodeployment>
   </PropertyGroup>
 </Project>
