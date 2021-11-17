@@ -34,10 +34,18 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
-  displayName: Publish Esquio UI web application
+  displayName: Create package
   inputs:
-    command: 'publish'
-    publishWebProjects: false
-    projects: 'demos/Esquio.UI.Web/Esquio.UI.Web.csproj'
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
+    command: 'pack'
+    packagesToPack: 'src/Esquio.UI.*/*.csproj; !src/Esquio.UI.Host/*.csproj'
+    includesymbols: true
+    includesource: true
+    versioningScheme: 'off'
+
+- task: DotNetCoreCLI@2
+  displayName: Push package to internal feed
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'bda71dfb-e486-4ca6-810e-ad85cef1dcc2/6c369a2d-2a7f-4da5-a2c2-3915187d2beb'
