@@ -42,9 +42,19 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
 
+
 # this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
-- task: PublishPipelineArtifact@1
+# - task: PublishPipelineArtifact@1
+#   inputs:
+#     targetPath: '$(Build.ArtifactStagingDirectory)/WebApp.zip'
+#     artifact: 'EsquioUI'
+#     publishLocation: 'pipeline'
+
+- task: AzureRmWebAppDeployment@4
+  displayName: 'Deploy to App Service'
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)/WebApp.zip'
-    artifact: 'EsquioUI'
-    publishLocation: 'pipeline'
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Explore ARM service connection'
+    appType: 'webApp'
+    WebAppName: 'explore-arm-templates-wa'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
